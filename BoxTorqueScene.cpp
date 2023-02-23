@@ -34,7 +34,7 @@ void BoxTorqueScene::Initialize()
 	//Link cube with cube actor
 	m_pCube->AttachRigidActor(m_pCubeActor);
 
-	m_pCube->Translate(0.f, 00.f, 0.f);
+	m_pCube->Translate(0.f, 0.f, 0.f);
 	//Groundplane
 	auto pGroundActor = pPhysX->createRigidStatic(PxTransform{ PxQuat{PxPiDivTwo, PxVec3{0,0,1}} });
 	PxRigidActorExt::createExclusiveShape(*pGroundActor, PxPlaneGeometry{}, *pDefaultMaterial);
@@ -55,7 +55,8 @@ void BoxTorqueScene::Update()
 {
 	if (m_SceneContext.GetInput()->IsKeyboardKey(InputTriggerState::pressed, 'R'))
 	{
-		m_pCube->Translate(0.f, 10.f, 0.f);
+		m_pCube->Translate(0.f, 0.f, 0.f);
+		m_pCube->RotateDegrees(0.f, 0.f, 0.f);
 	}
 
 	if (m_SceneContext.GetInput()->IsActionTriggered(Left))
@@ -78,7 +79,7 @@ void BoxTorqueScene::Update()
 
 void BoxTorqueScene::Draw() const
 {
-
+	
 }
 
 void BoxTorqueScene::OnSceneActivated()

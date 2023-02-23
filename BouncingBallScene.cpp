@@ -29,7 +29,7 @@ void BouncingBallScene::Initialize()
 	PxRigidDynamic* pSphere1Actor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
 	PxRigidDynamic* pSphere2Actor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
 	PxRigidDynamic* pSphere3Actor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
-	PxSphereGeometry sphereGeometry = PxSphereGeometry{ radius/2.f };
+	PxSphereGeometry sphereGeometry = PxSphereGeometry{ radius };
 
 	PxRigidActorExt::createExclusiveShape(*pSphere1Actor, sphereGeometry, *pBouncyMaterial);
 	PxRigidActorExt::createExclusiveShape(*pSphere2Actor, sphereGeometry, *pHalfBouncyMaterial);

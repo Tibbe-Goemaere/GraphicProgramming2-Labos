@@ -22,10 +22,5 @@ private:
 	GameObject* m_pCube1{ nullptr };
 	GameObject* m_pCube2{ nullptr };
 	GameObject* m_pCube3{ nullptr };
-
-	//Ramps
-	GameObject* m_pRamp1{ nullptr };
-	GameObject* m_pRamp2{ nullptr };
-	GameObject* m_pRamp3{ nullptr };
 };
 

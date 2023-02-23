@@ -9,9 +9,9 @@ void FrictionTestScene::Initialize()
 	EnablePhysxDebugRendering(true);
 
 	const auto pPhysX = PhysxManager::GetInstance()->GetPhysics();
-	const PxMaterial* pNoFrictionMaterial = pPhysX->createMaterial(0.f, 0.f, 0.f);
+	const PxMaterial* pFullFrictionMaterial = pPhysX->createMaterial(0.f, 0.f, 0.f);
 	const PxMaterial* pHalfFrictionMaterial = pPhysX->createMaterial(0.5f, 0.5f, 0.f);
-	const PxMaterial* pFullFrictionMaterial = pPhysX->createMaterial(1.f, 1.f, 0.f);
+	const PxMaterial* pNoFrictionMaterial = pPhysX->createMaterial(1.f, 1.f, 0.f);
 
 	//Cube
 	const XMFLOAT3 actorDimensions{ 1.f,1.f,1.f };
@@ -30,9 +30,9 @@ void FrictionTestScene::Initialize()
 	PxRigidDynamic* pCube3Actor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
 	PxBoxGeometry boxGeometry = PxBoxGeometry{ actorDimensions.x / 2.f,actorDimensions.y / 2.f,actorDimensions.z / 2.f };
 
-	PxRigidActorExt::createExclusiveShape(*pCube1Actor, boxGeometry, *pNoFrictionMaterial);
+	PxRigidActorExt::createExclusiveShape(*pCube1Actor, boxGeometry, *pFullFrictionMaterial);
 	PxRigidActorExt::createExclusiveShape(*pCube2Actor, boxGeometry, *pHalfFrictionMaterial);
-	PxRigidActorExt::createExclusiveShape(*pCube3Actor, boxGeometry, *pFullFrictionMaterial);
+	PxRigidActorExt::createExclusiveShape(*pCube3Actor, boxGeometry, *pNoFrictionMaterial);
 
 	//Link cube with cube actor
 	m_pCube1->AttachRigidActor(pCube1Actor);
@@ -49,7 +49,7 @@ void FrictionTestScene::Initialize()
 	
 	//Groundplane
 	auto pGroundActor = pPhysX->createRigidStatic(PxTransform{ PxQuat{PxPiDivTwo, PxVec3{0,0,1}} });
-	PxRigidActorExt::createExclusiveShape(*pGroundActor, PxPlaneGeometry{}, *pNoFrictionMaterial);
+	PxRigidActorExt::createExclusiveShape(*pGroundActor, PxPlaneGeometry{}, *pFullFrictionMaterial);
 	m_pPhysxScene->addActor(*pGroundActor);
 
 	//Ramps
@@ -69,9 +69,9 @@ void FrictionTestScene::Initialize()
 	auto pRamp3Actor = pPhysX->createRigidStatic(PxTransform{ PxIdentity });
 	PxBoxGeometry rampGeometry = PxBoxGeometry{ rampDimensions.x / 2.f,rampDimensions.y / 2.f,rampDimensions.z / 2.f };
 
-	PxRigidActorExt::createExclusiveShape(*pRamp1Actor, rampGeometry, *pNoFrictionMaterial);
-	PxRigidActorExt::createExclusiveShape(*pRamp2Actor, rampGeometry, *pNoFrictionMaterial);
-	PxRigidActorExt::createExclusiveShape(*pRamp3Actor, rampGeometry, *pNoFrictionMaterial);
+	PxRigidActorExt::createExclusiveShape(*pRamp1Actor, rampGeometry, *pFullFrictionMaterial);
+	PxRigidActorExt::createExclusiveShape(*pRamp2Actor, rampGeometry, *pFullFrictionMaterial);
+	PxRigidActorExt::createExclusiveShape(*pRamp3Actor, rampGeometry, *pFullFrictionMaterial);
 
 	//Link ramp with ramp actor
 	pRamp1->AttachRigidActor(pRamp1Actor);
