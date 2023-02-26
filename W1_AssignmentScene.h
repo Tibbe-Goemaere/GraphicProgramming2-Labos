@@ -21,7 +21,10 @@ private:
 	GameObject* m_pSphere{ nullptr };
 	PxRigidDynamic* m_pSphereActor{ nullptr };
 	std::vector<GameObject*> m_pWall{ nullptr };
+	const int m_NrCols{ 10 }, m_NrRows{ 10 };
+	const float m_BlockSize{ 1 };
 
 	void PlaceWall();
+	void ResetWall();
 };
 

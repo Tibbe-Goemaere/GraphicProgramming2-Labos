@@ -1,0 +1,18 @@
+[2023-2-25 - 16:47:6:81][DEBUG]   Adapter 0 : AMD Radeon(TM) Graphics
+[2023-2-25 - 16:47:6:82][DEBUG]   Adapter 1 : NVIDIA GeForce RTX 3060 Laptop GPU
+[2023-2-25 - 16:47:6:83][DEBUG]   Adapter 2 : Microsoft Basic Render Driver
+[2023-2-25 - 16:47:6:84][DEBUG]   3 Adapter(s) found
+[2023-2-25 - 16:47:6:84][DEBUG]   InitalizeAdapterAndOutput ok.
+[2023-2-25 - 16:47:6:85][DEBUG]   Window Class Created
+[2023-2-25 - 16:47:6:86][DEBUG]   Desktop resolution: 1536 x 864
+[2023-2-25 - 16:47:6:167][DEBUG]   Window Opened
+[2023-2-25 - 16:47:6:355][DEBUG]   Direct3D Initialized
+[2023-2-25 - 16:47:6:839][DEBUG]   Managers Initialized!
+[2023-2-25 - 16:47:6:840][INFO]    Press 'Page Up' or 'Page Down' to cycle between the different scenes
+[2023-2-25 - 16:47:6:841][INFO]    Press 'I' to toggle the debug renderer.
+[2023-2-25 - 16:47:6:842][INFO]    Press 'M' to do physics stepping.
+[2023-2-25 - 16:47:6:842][INFO]    Press 'L' to stop doing physics stepping.
+[2023-2-25 - 16:47:6:980][DEBUG]   Scenes Initialized!
+[2023-2-25 - 16:47:6:982][INFO]    Scene Activated > "W1_AssignmentScene"
+[2023-2-25 - 16:47:7:79][DEBUG]   DebugRenderer::Draw() > Increasing Vertexbuffer Size!
+[2023-2-25 - 16:47:12:683][DEBUG]   Core Initialization Finished
