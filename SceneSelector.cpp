@@ -5,8 +5,8 @@
 //Change this define to activate/deactive the corresponding scenes
 // W01 - W02  (#define ...)
 
-#define W01
-//#define W02
+//#define W01
+#define W02
 
 #ifdef W01
 #include "TestScene.h"
@@ -20,7 +20,10 @@
 #endif
 
 #ifdef W02
-
+#include "PhysxMeshTestScene.h"
+#include "TriggerTestScene.h"
+#include "AudioTestScene.h"
+#include "W2_AssignmentScene.h"
 #endif
 
 namespace dae
@@ -39,7 +42,10 @@ namespace dae
 #endif
 
 #ifdef W02
-
+		//pSceneManager->AddGameScene(new PhysxMeshTestScene());
+		//pSceneManager->AddGameScene(new TriggerTestScene());
+		//pSceneManager->AddGameScene(new AudioTestScene());
+		pSceneManager->AddGameScene(new W2_AssignmentScene());
 #endif
 
 	}

@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AudioTestScene.h" />
     <ClInclude Include="BaseCamera.h" />
     <ClInclude Include="BinaryReader.h" />
     <ClInclude Include="BouncingBallScene.h" />
@@ -112,6 +113,7 @@
     <ClInclude Include="PhysxErrorCallback.h" />
     <ClInclude Include="PhysxHelpers.h" />
     <ClInclude Include="PhysxManager.h" />
+    <ClInclude Include="PhysxMeshTestScene.h" />
     <ClInclude Include="PhysXTestScene.h" />
     <ClInclude Include="PxConvexMeshLoader.h" />
     <ClInclude Include="PxTriangleMeshLoader.h" />
@@ -126,10 +128,13 @@
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="TorusPosColorNorm.h" />
     <ClInclude Include="TrackingCamera.h" />
+    <ClInclude Include="TriggerTestScene.h" />
     <ClInclude Include="VertexStructs.h" />
     <ClInclude Include="W1_AssignmentScene.h" />
+    <ClInclude Include="W2_AssignmentScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioTestScene.cpp" />
     <ClCompile Include="BaseCamera.cpp" />
     <ClCompile Include="BinaryReader.cpp" />
     <ClCompile Include="BouncingBallScene.cpp" />
@@ -159,6 +164,7 @@
     <ClCompile Include="MeshObjectTex.cpp" />
     <ClCompile Include="PhysxErrorCallback.cpp" />
     <ClCompile Include="PhysxManager.cpp" />
+    <ClCompile Include="PhysxMeshTestScene.cpp" />
     <ClCompile Include="PhysXTestScene.cpp" />
     <ClCompile Include="PxConvexMeshLoader.cpp" />
     <ClCompile Include="PxTriangleMeshLoader.cpp" />
@@ -174,7 +180,9 @@
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="TorusPosColorNorm.cpp" />
     <ClCompile Include="TrackingCamera.cpp" />
+    <ClCompile Include="TriggerTestScene.cpp" />
     <ClCompile Include="W1_AssignmentScene.cpp" />
+    <ClCompile Include="W2_AssignmentScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
