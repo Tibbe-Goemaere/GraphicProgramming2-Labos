@@ -34,10 +34,10 @@ void W2_AssignmentScene::Initialize()
 
 
 	//Sphere
-	m_pSphere = new SpherePosColorNorm(1.f, 10, 10, XMFLOAT4{ Colors::IndianRed });
+	m_pSphere = new SpherePosColorNorm(1.f, 10, 10, XMFLOAT4{ Colors::Gray });
 	AddGameObject(m_pSphere);
 
-	const auto pSphereActor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
+	auto pSphereActor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
 	PxRigidActorExt::createExclusiveShape(*pSphereActor, PxSphereGeometry{ 1.f }, *pDefaultMaterial);
 
 	m_pSphere->AttachRigidActor(pSphereActor);
@@ -47,7 +47,7 @@ void W2_AssignmentScene::Initialize()
 
 	//Joint to lock position in xy plane
 	auto d6Joint = PxD6JointCreate(*pPhysX, nullptr, PxTransform{ PxIdentity }, pSphereActor, PxTransform{ PxIdentity });
-	//joint->setMotion(PxD6Axis::eZ, PxD6Motion::eLIMITED);
+	
 	d6Joint->setMotion(PxD6Axis::eX, PxD6Motion::eFREE);
 	d6Joint->setMotion(PxD6Axis::eY, PxD6Motion::eFREE);
 	d6Joint->setMotion(PxD6Axis::eTWIST, PxD6Motion::eFREE);
@@ -98,7 +98,7 @@ void W2_AssignmentScene::Initialize()
 
 	//Joint to lock position in xy plane
 	d6Joint = PxD6JointCreate(*pPhysX, nullptr, PxTransform{ PxIdentity }, pBoxActor, PxTransform{ PxIdentity });
-	//joint->setMotion(PxD6Axis::eZ, PxD6Motion::eLIMITED);
+
 	d6Joint->setMotion(PxD6Axis::eX, PxD6Motion::eFREE);
 	d6Joint->setMotion(PxD6Axis::eY, PxD6Motion::eFREE);
 	d6Joint->setMotion(PxD6Axis::eTWIST, PxD6Motion::eFREE);
@@ -117,7 +117,7 @@ void W2_AssignmentScene::Initialize()
 
 	//Joint to lock position in xy plane
 	d6Joint = PxD6JointCreate(*pPhysX, nullptr, PxTransform{ PxIdentity }, pBoxActor, PxTransform{ PxIdentity });
-	//joint->setMotion(PxD6Axis::eZ, PxD6Motion::eLIMITED);
+
 	d6Joint->setMotion(PxD6Axis::eX, PxD6Motion::eFREE);
 	d6Joint->setMotion(PxD6Axis::eY, PxD6Motion::eFREE);
 	d6Joint->setMotion(PxD6Axis::eTWIST, PxD6Motion::eFREE);
@@ -138,10 +138,21 @@ void W2_AssignmentScene::Initialize()
 	boxGeometry = PxBoxGeometry{ actorHatchDimensions.x / 2.f,actorHatchDimensions.y / 2.f,actorHatchDimensions.z / 2.f };
 	PxRigidActorExt::createExclusiveShape(*pHatchActor, boxGeometry, *pDefaultMaterial);
 	pHatchActor->setActorFlag(PxActorFlag::eDISABLE_GRAVITY, true);
+	pHatchActor->setRigidBodyFlag(PxRigidBodyFlag::eKINEMATIC, true);
 
 	m_pHatchLeft->AttachRigidActor(pHatchActor);
 	m_pHatchLeft->Translate(-9.f, 17.f, 0.f);
 
+	//Joint to rotate around a hinge
+	auto revoluteJoint = PxRevoluteJointCreate(*pPhysX, nullptr, PxTransform{ -9.f, 17.f, 0.f }, pHatchActor, PxTransform{ actorHatchDimensions.x/2.f,0.f,0.f });
+	revoluteJoint->setConstraintFlag(PxConstraintFlag::eVISUALIZATION,true);
+	
+	//revoluteJoint->setLimit(PxJointAngularLimitPair(-PxPi / 4, PxPi / 4, 0.01f));
+	//revoluteJoint->setRevoluteJointFlag(PxRevoluteJointFlag::eLIMIT_ENABLED, true);
+	//revoluteJoint->setDriveVelocity(100.f);
+	//revoluteJoint->setRevoluteJointFlag(PxRevoluteJointFlag::eDRIVE_ENABLED, true);
+	
+	
 	//Right hatch
 	m_pHatchRight = new CubePosColorNorm(actorHatchDimensions.x, actorHatchDimensions.y, actorHatchDimensions.z, XMFLOAT4{ Colors::Red });
 	AddGameObject(m_pHatchRight);
@@ -149,10 +160,31 @@ void W2_AssignmentScene::Initialize()
 	pHatchActor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
 	PxRigidActorExt::createExclusiveShape(*pHatchActor, boxGeometry, *pDefaultMaterial);
 	pHatchActor->setActorFlag(PxActorFlag::eDISABLE_GRAVITY, true);
+	pHatchActor->setRigidBodyFlag(PxRigidBodyFlag::eKINEMATIC, true);
 
 	m_pHatchRight->AttachRigidActor(pHatchActor);
 	m_pHatchRight->Translate(9.f, 17.f, 0.f);
 	
+	//left Sphere
+	m_pLeftSphere = new SpherePosColorNorm(0.75f, 10, 10, XMFLOAT4{ Colors::Gray });
+	AddGameObject(m_pLeftSphere);
+
+	pSphereActor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
+	PxRigidActorExt::createExclusiveShape(*pSphereActor, PxSphereGeometry{ 0.75f }, * pDefaultMaterial);
+
+	m_pLeftSphere->AttachRigidActor(pSphereActor);
+	m_pLeftSphere->Translate(-5.f, 25.f, 0.f);
+
+	//right Sphere
+	m_pRightSphere = new SpherePosColorNorm(0.75f, 10, 10, XMFLOAT4{ Colors::Gray });
+	AddGameObject(m_pRightSphere);
+
+	pSphereActor = pPhysX->createRigidDynamic(PxTransform{ PxIdentity });
+	PxRigidActorExt::createExclusiveShape(*pSphereActor, PxSphereGeometry{ 0.75f }, * pDefaultMaterial);
+
+	m_pRightSphere->AttachRigidActor(pSphereActor);
+	m_pRightSphere->Translate(5.f, 25.f, 0.f);
+
 	//Input
 	const auto pInput = m_SceneContext.GetInput();
 
@@ -172,8 +204,31 @@ void W2_AssignmentScene::Update()
 {
 	if (m_SceneContext.GetInput()->IsKeyboardKey(InputTriggerState::pressed, 'R'))
 	{
-		m_pSphere->Translate(0.f, 10.f, 0.f);
+		m_pSphere->Translate(0.f, 15.f, 0.f);
 		m_pSphere->RotateDegrees(0.f, 0.f, 0.f);
+
+		m_pCubeRight->Translate(2.f, 5.f, 0.f);
+		m_pCubeRight->RotateDegrees(0.f, 0.f, 0.f);
+
+		m_pCubeLeft->Translate(-2.f, 5.f, 0.f);
+		m_pCubeLeft->RotateDegrees(0.f, 0.f, 0.f);
+
+		m_pHatchRight->Translate(9.f, 17.f, 0.f);
+		m_pHatchRight->RotateDegrees(0.f, 0.f, 0.f);
+		m_RightRotateAngle = 0;
+		m_IsTriggeredRight = false;
+
+		m_pHatchLeft->Translate(-9.f, 17.f, 0.f);
+		m_pHatchLeft->RotateDegrees(0.f, 0.f, 0.f);
+		m_LeftRotateAngle = 0;
+		m_IsTriggeredLeft = false;
+
+		m_pRightSphere->Translate(5.f, 25.f, 0.f);
+		m_pRightSphere->RotateDegrees(0.f, 0.f, 0.f);
+
+		m_pLeftSphere->Translate(-5.f, 25.f, 0.f);
+		m_pLeftSphere->RotateDegrees(0.f, 0.f, 0.f);
+
 	}
 
 	const float force{ 300.f }, jumpForce{50000.f};
@@ -199,6 +254,7 @@ void W2_AssignmentScene::Update()
 		{
 			m_LeftRotateAngle += m_SceneContext.GetGameTime()->GetElapsed() * speed;
 			m_pHatchLeft->RotateDegrees(0.f,0.f,m_LeftRotateAngle);
+			m_pHatchLeft->Translate(-7.5f, 16.f, 0.f);
 		}
 	}
 
@@ -208,6 +264,7 @@ void W2_AssignmentScene::Update()
 		{
 			m_RightRotateAngle -= m_SceneContext.GetGameTime()->GetElapsed() * speed;
 			m_pHatchRight->RotateDegrees(0.f, 0.f, m_RightRotateAngle);
+			m_pHatchRight->Translate(7.5f, 16.f, 0.f);
 		}
 	}
 }

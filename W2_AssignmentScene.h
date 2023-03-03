@@ -40,6 +40,9 @@ private:
 	float m_LeftRotateAngle{};
 	float m_RightRotateAngle{};
 
+	GameObject* m_pLeftSphere{ nullptr };
+	GameObject* m_pRightSphere{ nullptr };
+
 	FMOD_VECTOR m_prevCamPos{};
 
 	enum InputIds

@@ -1,19 +1,19 @@
-[2023-3-2 - 16:45:30:534][DEBUG]   Adapter 0 : AMD Radeon(TM) Graphics
-[2023-3-2 - 16:45:30:536][DEBUG]   Adapter 1 : NVIDIA GeForce RTX 3060 Laptop GPU
-[2023-3-2 - 16:45:30:537][DEBUG]   Adapter 2 : Microsoft Basic Render Driver
-[2023-3-2 - 16:45:30:537][DEBUG]   3 Adapter(s) found
-[2023-3-2 - 16:45:30:538][DEBUG]   InitalizeAdapterAndOutput ok.
-[2023-3-2 - 16:45:30:539][DEBUG]   Window Class Created
-[2023-3-2 - 16:45:30:540][DEBUG]   Desktop resolution: 1536 x 864
-[2023-3-2 - 16:45:30:622][DEBUG]   Window Opened
-[2023-3-2 - 16:45:30:814][DEBUG]   Direct3D Initialized
-[2023-3-2 - 16:45:31:323][DEBUG]   Managers Initialized!
-[2023-3-2 - 16:45:31:325][INFO]    Press 'Page Up' or 'Page Down' to cycle between the different scenes
-[2023-3-2 - 16:45:31:326][INFO]    Press 'I' to toggle the debug renderer.
-[2023-3-2 - 16:45:31:327][INFO]    Press 'M' to do physics stepping.
-[2023-3-2 - 16:45:31:329][INFO]    Press 'L' to stop doing physics stepping.
-[2023-3-2 - 16:45:31:406][DEBUG]   Parsing mesh: Level.obj
-[2023-3-2 - 16:45:31:417][DEBUG]   Scenes Initialized!
-[2023-3-2 - 16:45:31:419][INFO]    Scene Activated > "W2_AssignmentScene"
-[2023-3-2 - 16:45:31:522][DEBUG]   DebugRenderer::Draw() > Increasing Vertexbuffer Size!
-[2023-3-2 - 16:45:34:564][DEBUG]   Core Initialization Finished
+[2023-3-3 - 15:52:50:729][DEBUG]   Adapter 0 : AMD Radeon(TM) Graphics
+[2023-3-3 - 15:52:50:732][DEBUG]   Adapter 1 : NVIDIA GeForce RTX 3060 Laptop GPU
+[2023-3-3 - 15:52:50:733][DEBUG]   Adapter 2 : Microsoft Basic Render Driver
+[2023-3-3 - 15:52:50:733][DEBUG]   3 Adapter(s) found
+[2023-3-3 - 15:52:50:734][DEBUG]   InitalizeAdapterAndOutput ok.
+[2023-3-3 - 15:52:50:735][DEBUG]   Window Class Created
+[2023-3-3 - 15:52:50:736][DEBUG]   Desktop resolution: 1536 x 864
+[2023-3-3 - 15:52:50:820][DEBUG]   Window Opened
+[2023-3-3 - 15:52:51:19][DEBUG]   Direct3D Initialized
+[2023-3-3 - 15:52:51:546][DEBUG]   Managers Initialized!
+[2023-3-3 - 15:52:51:547][INFO]    Press 'Page Up' or 'Page Down' to cycle between the different scenes
+[2023-3-3 - 15:52:51:548][INFO]    Press 'I' to toggle the debug renderer.
+[2023-3-3 - 15:52:51:549][INFO]    Press 'M' to do physics stepping.
+[2023-3-3 - 15:52:51:550][INFO]    Press 'L' to stop doing physics stepping.
+[2023-3-3 - 15:52:51:625][DEBUG]   Parsing mesh: Level.obj
+[2023-3-3 - 15:52:51:637][DEBUG]   Scenes Initialized!
+[2023-3-3 - 15:52:51:638][INFO]    Scene Activated > "W2_AssignmentScene"
+[2023-3-3 - 15:52:51:742][DEBUG]   DebugRenderer::Draw() > Increasing Vertexbuffer Size!
+[2023-3-3 - 15:53:17:642][DEBUG]   Core Initialization Finished
